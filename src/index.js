@@ -1,32 +1,18 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import './index.css';
-// import App from './App';
-
-// import registerServiceWorker from './registerServiceWorker';
-
-
-
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
+import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux'
 import { createStore, combineReducers } from 'redux'
 import { reducer as reduxFormReducer } from 'redux-form'
-
-// import {
-//   Values,
-// } from 'redux-form-website-template'
-// import Results from './Results';
 import FieldArraysForm from './FieldArraysForm';
 
 const dest = document.getElementById('content')
 const reducer = combineReducers({
   form: reduxFormReducer // mounted under "form"
 })
-// const store = (window.devToolsExtension
-//   ? window.devToolsExtension()(createStore)
-//   : createStore)(reducer)
-const store = createStore(reducer)
+const store = (window.devToolsExtension
+  ? window.devToolsExtension()(createStore)
+  : createStore)(reducer)
   
 function postData(url, payload) {
   return (
@@ -200,4 +186,4 @@ ReactDOM.render(
   </Provider>,
   dest
 )
-// registerServiceWorker();
+registerServiceWorker();
